@@ -1,7 +1,3 @@
-
-
-
-
 #em = "<em>"
 #s_em = "</em>"
 #strong = "<strong>"
@@ -17,6 +13,21 @@
 #ul = '<ul>'
 #li = '<li>'
 
+def extract_md(file_n,path):
+    file = open(path+'\\'+ filename ,"r",encoding="utf-8")
+    txt_lines = file.readlines()
+    files.close()
+    return txt_lines
+
+def conversion_files(file_n,path,txt_lines):
+    file = open(path+'\\'+ filename[:-3] + ".html",encoding="utf-8")
+    for c in txt_lines:
+        file.write(c + '\n')
+
+
+
+
+
 txt = ''
 
 if '###' in txt:
@@ -27,7 +38,6 @@ elif '##' in txt:
 
 elif '#' in txt:
     print('<h1>' + txt[1:] + ' ' + '</h1>')
-
 
 if 'http://' in txt:
     print('<a href=' + txt + '">' + txt + '</a>')
