@@ -26,36 +26,41 @@ def conversion_files(file_n,path,txt_lines):
 
 
 
-
-
-txt = ''
-
 def Titles(txt_lines):
+    result = []
     if '###' in txt:
-        print('<h3>' + txt[3:] + ' ' + '</h3>')
+        result.append('<h3>' + txt[3:] + ' ' + '</h3>')
 
     elif '##' in txt:
-        print('<h2>' + txt[2:] + ' ' + '</h2>')
+        result.append('<h2>' + txt[2:] + ' ' + '</h2>')
 
     elif '#' in txt:
-        print('<h1>' + txt[1:] + ' ' + '</h1>')
+        result.append('<h1>' + txt[1:] + ' ' + '</h1>')
+    return result
 
 def web(txt_lines):
+    result = []
     if 'http://' in txt:
-    print('<a href=' + txt + '">' + txt + '</a>')
+        result.append('<a href=' + txt + '">' + txt + '</a>')
 
     elif 'https://' in txt:
-        print('<a href=' + txt + '">' + txt + '</a>')
+        result.append('<a href=' + txt + '">' + txt + '</a>')
+    return result
 
 def important(txt_lines):
+    result = []
     if '**' in txt:
-        print('<strong>' + txt + '</strong>')
+        result.append('<strong>' + txt + '</strong>')
 
     elif '*' in txt:
-        print('<em>' + txt + '</em>')
+        result.append('<em>' + txt + '</em>')
+    return result
+
 def text(txt_lines):
+    result = []
     if txt in txt:
-        print('<p>' + txt + '</p>')
+        result.append('<p>' + txt + '</p>')
     else:
-        print('<br>')
+        result.append('<br>')
+    return result
 
