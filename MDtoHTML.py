@@ -19,14 +19,13 @@ def extract_md(file_n,path):
     files.close()
     return txt_lines
 
-def conversion_files(file_n,path,txt_lines):
+def html_files(file_n,path,txt_lines):
     file = open(path+'\\'+ filename[:-3] + ".html",encoding="utf-8")
-    for c in txt_lines:
-        file.write(c + '\n')
+    for t in txt_lines:
+        file.write(t + '\n')
 
 
-
-def Titles(txt_lines):
+def titles(txt_lines):
     result = []
     if '###' in txt:
         result.append('<h3>' + txt[3:] + ' ' + '</h3>')
@@ -38,7 +37,7 @@ def Titles(txt_lines):
         result.append('<h1>' + txt[1:] + ' ' + '</h1>')
     return result
 
-def web(txt_lines):
+def link(txt_lines):
     result = []
     if 'http://' in txt:
         result.append('<a href=' + txt + '">' + txt + '</a>')
@@ -56,6 +55,12 @@ def important(txt_lines):
         result.append('<em>' + txt + '</em>')
     return result
 
+def italic(txt_lines):
+    result = []
+    if '_' in txt:
+        result.append('<i>' + txt + '</i>')
+    return result
+
 def text(txt_lines):
     result = []
     if txt in txt:
@@ -63,4 +68,13 @@ def text(txt_lines):
     else:
         result.append('<br>')
     return result
+
+def convert(path, file_n, output):
+    content = extract_md(path, file_n)
+    content = titles(txt_lines)
+    content = important(txt_lines)
+    content = link(txt_lines)
+    content = italic(txt_lines)
+    content = text(txt_lines)
+    writeFile(txt_lines, output, file_n)
 
