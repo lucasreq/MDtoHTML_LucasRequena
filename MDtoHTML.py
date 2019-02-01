@@ -29,15 +29,20 @@ def html_files(file_n,path,txt_lines):
 
 
 def titles(txt_lines):
-    reg = {regex: [r'^\s*[#]{3}', r'^\s*[#]{2}', r'^\s*[#]{1}']}
+    tosearch = "r'[#]{3}\s*(.*),r'[#]{2}\s*(.*)',r'[#]{1}\s*(.*),txt_lines"
+    search = re.search(tosearch)
+    if search:
+        title = search.group(1)
+        return title
+
     result = []
-    if r'^\s*[#]{3}' in txt:
+    if '#' in txt:
         result.append('<h3>' + txt[3:] + ' ' + '</h3>')
 
-    elif r'^\s*[#]{2}' in txt:
+    elif '##' in txt:
         result.append('<h2>' + txt[2:] + ' ' + '</h2>')
 
-    elif r'^\s*[#]{1}' in txt:
+    elif '###' in txt:
         result.append('<h1>' + txt[1:] + ' ' + '</h1>')
     return result
 
