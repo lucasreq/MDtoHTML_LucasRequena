@@ -13,6 +13,9 @@
 #ul = '<ul>'
 #li = '<li>'
 
+import re
+
+
 def extract_md(file_n,path):
     file = open(path+'\\'+ filename ,"r",encoding="utf-8")
     txt_lines = file.readlines()
@@ -27,13 +30,13 @@ def html_files(file_n,path,txt_lines):
 
 def titles(txt_lines):
     result = []
-    if '###' in txt:
+    if "r'^\s*[#]{3}'" in txt:
         result.append('<h3>' + txt[3:] + ' ' + '</h3>')
 
-    elif '##' in txt:
+    elif "r'^\s*[#]{2}'" in txt:
         result.append('<h2>' + txt[2:] + ' ' + '</h2>')
 
-    elif '#' in txt:
+    elif "r'^\s*[#]{1}" in txt:
         result.append('<h1>' + txt[1:] + ' ' + '</h1>')
     return result
 
@@ -68,6 +71,10 @@ def text(txt_lines):
     else:
         result.append('<br>')
     return result
+
+def addTemplate(template, output):
+    for file in os.listdir(template):
+        copyfile(template+'\\'+file, output+'\\'+file)
 
 def convert(path, file_n, output):
     content = extract_md(path, file_n)
