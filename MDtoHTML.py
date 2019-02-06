@@ -47,37 +47,37 @@ def html_files(file_n,path,txt_lines):
 def titles(txt_lines):
 
     result = []
-    if '#' in txt:
+    if '#' in txt_lines:
         result.append('<h3>' + txt_lines[3:] + ' ' + '</h3>')
 
-    elif '##' in txt:
+    elif '##' in txt_lines:
         result.append('<h2>' + txt_lines[2:] + ' ' + '</h2>')
 
-    elif '###' in txt:
+    elif '###' in txt_lines:
         result.append('<h1>' + txt_lines[1:] + ' ' + '</h1>')
     return result
 
 def link(txt_lines):
     result = []
-    if 'http://' in txt:
+    if 'http://' in txt_lines:
         result.append('<a href=' + txt_lines + '">' + txt_lines + '</a>')
 
-    elif 'https://' in txt:
+    elif 'https://' in txt_lines:
         result.append('<a href=' + txt_lines + '">' + txt_lines + '</a>')
     return result
 
 def important(txt_lines):
     result = []
-    if '**' in txt:
+    if '**' in txt_lines:
         result.append('<strong>' + txt_lines + '</strong>')
 
-    elif '*' in txt:
+    elif '*' in txt_lines:
         result.append('<em>' + txt_lines + '</em>')
     return result
 
 def italic(txt_lines):
     result = []
-    if '_' in txt:
+    if '_' in txt_lines:
         result.append('<i>' + txt_lines + '</i>')
     return result
 
