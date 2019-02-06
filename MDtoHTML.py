@@ -45,11 +45,6 @@ def html_files(file_n,path,txt_lines):
 
 
 def titles(txt_lines):
-    tosearch = "r'[#]{3}\s*(.*),r'[#]{2}\s*(.*)',r'[#]{1}\s*(.*),txt_lines"
-    search = re.search(tosearch)
-    if search:
-        title = search.group(1)
-        return title
 
     result = []
     if '#' in txt:
