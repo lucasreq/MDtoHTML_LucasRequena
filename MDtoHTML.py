@@ -14,6 +14,8 @@
 #li = '<li>'
 
 import re
+import os
+from shutil import copyfile
 
 def extract_md(file_n,path):
     file = open(path+'\\'+ filename ,"r",encoding="utf-8")
@@ -58,6 +60,7 @@ def titles(txt_lines):
     return result
 
 def link(txt_lines):
+
     result = []
     if 'http://' in txt_lines:
         result.append('<a href=' + txt_lines + '">' + txt_lines + '</a>')
@@ -67,6 +70,7 @@ def link(txt_lines):
     return result
 
 def important(txt_lines):
+
     result = []
     if '**' in txt_lines:
         result.append('<strong>' + txt_lines + '</strong>')
@@ -76,12 +80,14 @@ def important(txt_lines):
     return result
 
 def italic(txt_lines):
+
     result = []
     if '_' in txt_lines:
         result.append('<i>' + txt_lines + '</i>')
     return result
 
 def text(txt_lines):
+
     result = []
     if txt_lines in txt_lines:
         result.append('<p>' + txt_lines + '</p>')
@@ -89,11 +95,13 @@ def text(txt_lines):
         result.append('<br>')
     return result
 
+
 def addTemplate(template, output):
     for file in os.listdir(template):
         copyfile(template+'\\'+file, output+'\\'+file)
 
-def convert(path, file_n, output):
+
+def convert(path, file_n, output,txt_lines):
     content = extract_md(path, file_n)
     content = titles(txt_lines)
     content = important(txt_lines)
