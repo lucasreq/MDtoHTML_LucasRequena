@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <title>site statique</title>
+  </head>
+
+  <body>
+    
+  </body>
+
+</html>

@@ -4,8 +4,8 @@ import os
 from shutil import copyfile
 
 def extract_md(file_n,path):
-    file = open(path+'\\'+ filename ,"r",encoding="utf-8")
-    txt_lines = file.readlines()
+    files = open(path+'\\'+ file_n ,"r",encoding="utf-8")
+    txt_lines = files.readlines()
     files.close()
     return txt_lines
 
@@ -26,8 +26,8 @@ class Searcher:
         return self.groups[index]
 
 
-def html_files(file_n,path,txt_lines):
-    file = open(path+'\\'+ filename[:-3] + ".html",encoding="utf-8")
+def html_files(text_lines,path,file_n):
+    file = open(path+'\\'+ file_n[:-3] + ".html",encoding="utf-8")
     for t in txt_lines:
         file.write(t + '\n')
 
@@ -43,6 +43,7 @@ def titles(txt_lines):
 
     elif '###' in txt_lines:
         result.append('<h1>' + txt_lines[1:] + ' ' + '</h1>')
+
     return result
 
 def link(txt_lines):
@@ -83,8 +84,8 @@ def text(txt_lines):
 
 
 def addTemplate(template, output):
-    for file in os.listdir(template):
-        copyfile(template+'\\'+file, output+'\\'+file)
+    for file in os.listdir(temp1):
+        copyfile(temp1+'\\'+ file, output+'\\'+file)
 
 
 def convert(path, file_n, output,txt_lines):
@@ -94,5 +95,5 @@ def convert(path, file_n, output,txt_lines):
     content = link(txt_lines)
     content = italic(txt_lines)
     content = text(txt_lines)
-    writeFile(txt_lines, output, file_n)
+    html_files(txt_lines, output, file_n)
 
