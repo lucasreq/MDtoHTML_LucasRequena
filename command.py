@@ -18,26 +18,26 @@ path = os.getcwd()
 output = path
 template = path
 
-if argpars.output_directory:
-    output = output + "\\" + argpars.output_directory
+if arg.output_directory:
+    output = output + "\\" + arg.output_directory
 
-if argpars.template_directory:
-    template = template + '\\' + argpars.template_directory
+if arg.template_directory:
+    template = template + '\\' + arg.template_directory
     addTemplate(template, output)
 else:
     template = None
 
-if argpars.input_directory:
-    path = path + "\\" + argpars.input_directory
+if arg.input_directory:
+    path = path + "\\" + arg.input_directory
 
 if not os.path.exists(output):
     os.makedirs(output)
-    print('The directory {} has been created.'.format(args.output_directory))
+    print('Le dossier {} a été créer.'.format(arg.output_directory))
 
 try:
     file = os.listdir(path)
     for filename in file:
         if len(re.findall(r'.*\.md', filename)) > 0:
-            convert(path, filename, output)
+            convert(path, file_n, output)
 except:
-    print("The directory '{}' doesn't exist.".format(args.input_directory))
+    print("Le dossier '{}' n'existe pas.".format(arg.input_directory))
