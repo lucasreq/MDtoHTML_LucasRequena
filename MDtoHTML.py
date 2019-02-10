@@ -1,17 +1,3 @@
-#em = "<em>"
-#s_em = "</em>"
-#strong = "<strong>"
-#s_strong = "</strong>"
-#p = '<p>'
-#s_p = '</p>'
-#h1 = '<h1>'
-#h2 = '<h2>'
-#h3 = '<h3>'
-#link = '<a href="'
-#s_link = '">'
-#ss_link = '</a>'
-#ul = '<ul>'
-#li = '<li>'
 
 import re
 import os
