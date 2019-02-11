@@ -5,9 +5,9 @@ from MDtoHTML import convert, addTemplate
 
 argpars = argparse.ArgumentParser()
 argpars.add_argument('-i', '--input-directory',
-                    help='Chemin du dossier contenant les fichiers markdown (.md)')
+                    help='Chemin du dossier contenant les fichiers markdown pour la conversion')
 argpars.add_argument('-o', '--output-directory',
-                    help="Chemin du dossier où seront mis les fichier générés")
+                    help="Chemin du dossier où seront mis les fichiers générés")
 argpars.add_argument('-t', '--template-directory',
                     help='Dossier contenant un template')
 argpars.add_argument('-v', '--version', action='version',
