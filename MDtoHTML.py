@@ -9,12 +9,12 @@ def extract_md(file_n,path):
     return txt_lines
 
 class Searcher:
-    def __init__(self, text_lines):
-        self.text_lines = text_lines
+    def __init__(self, txt_lines):
+        self.txt_lines = txt_lines
         self.groups = None
 
     def __contains__(self, regex):
-        match = re.search(regex, self.text_lines)
+        match = re.search(regex, self.txt_lines)
         if match:
             self.groups = match.groups()
         else:
