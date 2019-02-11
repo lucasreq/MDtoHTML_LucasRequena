@@ -11,7 +11,7 @@ argpars.add_argument('-o', '--output-directory',
 argpars.add_argument('-t', '--template-directory',
                     help='Dossier contenant un template')
 argpars.add_argument('-v', '--version', action='version',
-                    version='%(prog)s 1.0')
+                    version='%(prog)s 0.0(bêta)')
 arg = argpars.parse_args()
 
 path = os.getcwd()
