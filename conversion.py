@@ -23,12 +23,13 @@ path = os.getcwd()
 output = path
 template = path
 
-if arg.output_directory:
-    output = output + "\\" + arg.output_directory
-
 if arg.template_directory:
     template = template + '\\' + arg.template_directory
     addTemplate(template, output)
+
+if arg.output_directory:
+    output = output + "\\" + arg.output_directory
+
 else:
     template = None
 
