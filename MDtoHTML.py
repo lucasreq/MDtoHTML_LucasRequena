@@ -42,8 +42,10 @@ def titles(txt_lines):
 
     elif '([###]+)(\s*)(w.*)' in txt_lines:
         result.append('<h1>' + txt_lines[1:] + ' ' + '</h1>')
-
+    
     return result
+    break
+
 
 def link(txt_lines):
 
@@ -53,24 +55,31 @@ def link(txt_lines):
 
     elif 'https://' in txt_lines:
         result.append('<a href=' + txt_lines + '">' + txt_lines + '</a>')
-    return result
+    
+        return result
+        break
 
 def important(txt_lines):
 
     result = []
     if '([**]+)(\s*)(w.*)' in txt_lines:
-        result.append('<strong>' + txt_lines + '</strong>')
+        result.append('<strong>' + txt_lines[2:] + '</strong>')
 
     elif '([*]+)(\s*)(w.*)' in txt_lines:
-        result.append('<em>' + txt_lines + '</em>')
+        result.append('<em>' + txt_lines[1:] + '</em>')
+    
     return result
+    break
+    
 
 def italic(txt_lines):
 
     result = []
     if '_' in txt_lines:
-        result.append('<i>' + txt_lines + '</i>')
+        result.append('<i>' + txt_lines[1:] + '</i>')
+    
     return result
+    break
 
 def text(txt_lines):
 
@@ -79,7 +88,9 @@ def text(txt_lines):
         result.append('<p>' + txt_lines + '</p>')
     else:
         result.append('<br>')
+    
     return result
+    break
 
 
 def addTemplate(template, output):
