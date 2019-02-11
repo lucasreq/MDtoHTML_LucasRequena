@@ -1,8 +1,6 @@
 # Projet MDtoHTML
 Lucas Requena
 
-licence BSD 3-Clause
-
 ## Commandes
 
 ```-i``` : vous permet de choisir le chemin du dossier contenant les fichiers markdown pour la conversion
@@ -16,4 +14,9 @@ licence BSD 3-Clause
 
 Pour le template, 
 il a été mis a disposition un template HTML de base.
-Vous avez la possibilité d'utiliser autre template. 
+Vous avez la possibilité d'utiliser un autre template. 
+
+
+## Licence
+
+licence BSD 3-Clause
