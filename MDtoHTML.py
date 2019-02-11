@@ -44,7 +44,6 @@ def titles(txt_lines):
         result.append('<h1>' + txt_lines[1:] + ' ' + '</h1>')
     
     return result
-    break
 
 
 def link(txt_lines):
@@ -57,7 +56,6 @@ def link(txt_lines):
         result.append('<a href=' + txt_lines + '">' + txt_lines + '</a>')
     
         return result
-        break
 
 def important(txt_lines):
 
@@ -69,7 +67,6 @@ def important(txt_lines):
         result.append('<em>' + txt_lines[1:] + '</em>')
     
     return result
-    break
     
 
 def italic(txt_lines):
@@ -79,7 +76,7 @@ def italic(txt_lines):
         result.append('<i>' + txt_lines[1:] + '</i>')
     
     return result
-    break
+
 
 def text(txt_lines):
 
@@ -90,7 +87,6 @@ def text(txt_lines):
         result.append('<br>')
     
     return result
-    break
 
 
 def addTemplate(template, output):
@@ -98,7 +94,7 @@ def addTemplate(template, output):
         copyfile(template+'\\'+ file, output+'\\'+file)
 
 
-def convert(path, file_n, output,txt_lines):
+def conversion(path, file_n, output):
     txt_lines = extract_md(path, file_n)
     txt_lines = titles(txt_lines)
     txt_lines = important(txt_lines)

@@ -1,7 +1,7 @@
 import argparse
 import os
 import re
-from MDtoHTML import convert, addTemplate
+from MDtoHTML import conversion, addTemplate
 
 argpars = argparse.ArgumentParser()
 
@@ -44,6 +44,6 @@ try:
     file = os.listdir(path)
     for filename in file:
         if len(re.findall(r'.*\.md', filename)) > 0:
-            convert(path, file_n, output)
+            conversion(path, file_n, output)
 except:
     print("Le dossier '{}' n'existe pas.".format(arg.input_directory))
