@@ -75,7 +75,7 @@ def italic(txt_lines):
 def text(txt_lines):
 
     result = []
-    if "([ ]+)(\s*)(w.*)" in txt_lines:
+    if '(^.+)' in txt_lines:
         result.append('<p>' + txt_lines + '</p>')
     else:
         result.append('<br>')
