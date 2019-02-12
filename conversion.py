@@ -5,17 +5,21 @@ from MDtoHTML import conversion, addTemplate
 
 argpars = argparse.ArgumentParser()
 
-argpars.add_argument('-i', '--input-directory',
-                    help='Chemin du dossier contenant les fichiers markdown pour la conversion')
+argpars.add_argument(
+    "-i",
+    "--input-directory",
+    help="Chemin du dossier contenant les fichiers markdown pour la conversion",
+)
 
-argpars.add_argument('-o', '--output-directory',
-                    help="Chemin du dossier où seront mis les fichiers générés")
+argpars.add_argument(
+    "-o",
+    "--output-directory",
+    help="Chemin du dossier où seront mis les fichiers générés",
+)
 
-argpars.add_argument('-t', '--template-directory',
-                    help='Dossier contenant un template')
+argpars.add_argument("-t", "--template-directory", help="Dossier contenant un template")
 
-argpars.add_argument('-v', '--version', action='version',
-                    version='%(prog)s 0.0(bêta)')
+argpars.add_argument("-v", "--version", action="version", version="%(prog)s 0.0(bêta)")
 
 arg = argpars.parse_args()
 
@@ -24,7 +28,7 @@ output = path
 template = path
 
 if arg.template_directory:
-    template = template + '\\' + arg.template_directory
+    template = template + "\\" + arg.template_directory
     addTemplate(template, output)
 
 if arg.output_directory:
@@ -38,12 +42,12 @@ if arg.input_directory:
 
 if not os.path.exists(output):
     os.makedirs(output)
-    print('Le dossier {} a été créer.'.format(arg.output_directory))
+    print("Le dossier {} a été créer.".format(arg.output_directory))
 
 try:
     file = os.listdir(path)
     for filename in file:
-        if len(re.findall(r'.*\.md', filename)) > 0:
+        if len(re.findall(r".*\.md", filename)) > 0:
             conversion(path, file_n, output)
 except:
     print("Le dossier '{}' n'existe pas.".format(arg.input_directory))
