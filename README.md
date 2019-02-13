@@ -16,6 +16,13 @@ Pour le template,
 il a été mis a disposition un template HTML de base.
 Vous avez la possibilité d'utiliser un autre template. 
 
+## Librairies utilisés
+
+- Miscellaneous operating system interfaces (os)
+- Regular expression operations (re)
+- High-level file operations (shutil)
+- Parser for command-line options, arguments and sub-commands (argparse)
+
 
 ## Licence
 
